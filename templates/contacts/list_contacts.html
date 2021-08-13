@@ -28,6 +28,13 @@
     </div>
     {% endif %}
 
+    {% if contact.birthday %}
+    <div class="flex">
+      <div class="pr2"><i class="icofont-birthday"></i></div>
+      <div>{{ contact.birthday }}</div>
+    </div>
+    {% endif %}
+
     {% if contact.email %}
     <div class="flex">
       <div class="pr2"><i class="icofont-ui-email"></i></div>
@@ -36,10 +43,14 @@
     {% endif %}
 
     <p>
-      <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br>    
+      <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br> 
+      <a href="{% url 'view_contact' pk=contact.pk %}"> View Contact</a>   
       <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a>
     </p>
   </div>
   {% endfor %}
 </div>  
 {% endblock %}
+
+
+

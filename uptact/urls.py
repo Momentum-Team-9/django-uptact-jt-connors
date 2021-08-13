@@ -21,6 +21,7 @@ from contacts import views as contacts_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', contacts_views.list_contacts, name='list_contacts'),
+    path('contacts/<int:pk>/', contacts_views.view_contact, name='view_contact'),
     path('contacts/add/', contacts_views.add_contact, name='add_contact'),
     path('contacts/<int:pk>/edit/',
          contacts_views.edit_contact,
@@ -28,6 +29,9 @@ urlpatterns = [
     path('contacts/<int:pk>/delete/',
          contacts_views.delete_contact,
          name='delete_contact'),
+    path('contacts/<int:pk>/notes/', contacts_views.view_note, name='view_note'),
+    path('contacts/notes/new', contacts_views.add_note, name='add_note'),
+    path('contacts/<int:pk>/notes/edit', contacts_views.edit_note, name='edit_note'),
 ]
 
 if settings.DEBUG:
